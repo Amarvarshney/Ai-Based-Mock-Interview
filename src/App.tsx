@@ -10,10 +10,13 @@ import { SignInPage } from "./routes/sign-in";
 import { SignOutPage } from "./routes/sign-out";
 import { Generate } from "./components/generate";
 import { Dashboard } from "./routes/dashboard";
+import { CreateEditPage } from "./routes/create-edit-page";
+
 
 const App = () => {
   return (
-    <Router>
+  
+  <Router>
       <Routes>
         {/*public routes*/}
         <Route element={<PublicLayout />}>
@@ -34,9 +37,11 @@ const App = () => {
           }
         >
           {/* ADD ALL THE PROTECT ROUTES  */}
-          <Route element={<Generate />} path="/generate">
+          <Route element={<Generate/>} path="/generate">
             <Route index element={<Dashboard />} />
-          </Route>
+            <Route path=":interviewId" element={<CreateEditPage />} />
+          </Route>  
+          
         </Route>
       </Routes>
     </Router>
