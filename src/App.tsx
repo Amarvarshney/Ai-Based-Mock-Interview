@@ -11,6 +11,10 @@ import { SignOutPage } from "./routes/sign-out";
 import { Generate } from "./components/generate";
 import { Dashboard } from "./routes/dashboard";
 import { CreateEditPage } from "./routes/create-edit-page";
+import { MockPage } from "./routes/mock-page";
+import { MockStart } from "./routes/mock-interview";
+import { Feedback } from "./routes/feedback";
+
 
 
 const App = () => {
@@ -40,6 +44,9 @@ const App = () => {
           <Route element={<Generate/>} path="/generate">
             <Route index element={<Dashboard />} />
             <Route path=":interviewId" element={<CreateEditPage />} />
+            <Route path="interview/:interviewId" element={<MockPage/>}/>
+            <Route path="interview/:interviewId/start" element={<MockStart/>}/>
+            <Route path="feedback/:interviewId" element={<Feedback />} />
           </Route>  
           
         </Route>
