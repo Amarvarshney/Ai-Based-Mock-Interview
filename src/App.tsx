@@ -5,33 +5,42 @@ import AuthenticationLayout from "./layouts/auth-layout";
 import ProtectLayout from "./layouts/protected-layout";
 import { MainLayout } from "./layouts/main-layout";
 
-
 import HomePage from "@/routes/home";
-import {SignInPage } from "./routes/sign-in";
-import {SignOutPage } from "./routes/sign-out";
+import { SignInPage } from "./routes/sign-in";
+import { SignOutPage } from "./routes/sign-out";
+import { Generate } from "./components/generate";
+import { Dashboard } from "./routes/dashboard";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-         {/*public routes*/}
-         <Route element ={<PublicLayout/>}>
-          <Route index element={<HomePage/>}/>
-         </Route>
-         {/* auth routes*/}
-         <Route element ={<AuthenticationLayout/>}>
-          <Route path="/signin/*" element={<SignInPage/>}/>
-          <Route path="/signout/*" element={<SignOutPage/>}/>
-         </Route>
+        {/*public routes*/}
+        <Route element={<PublicLayout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+        {/* auth routes*/}
+        <Route element={<AuthenticationLayout />}>
+          <Route path="/signin/*" element={<SignInPage />} />
+          <Route path="/signout/*" element={<SignOutPage />} />
+        </Route>
 
-         {/*protected routes*/}
-         <Route element={<ProtectLayout><MainLayout/></ProtectLayout>}>
-         
-         </Route> 
+        {/*protected routes*/}
+        <Route
+          element={
+            <ProtectLayout>
+              <MainLayout />
+            </ProtectLayout>
+          }
+        >
+          {/* ADD ALL THE PROTECT ROUTES  */}
+          <Route element={<Generate />} path="/generate">
+            <Route index element={<Dashboard />} />
+          </Route>
+        </Route>
       </Routes>
     </Router>
   );
-  
 };
 
-export default App
+export default App;
