@@ -117,11 +117,22 @@
   body {
     @apply bg-background text-foreground;
   }
+ 
   .text-outline{
     color: aliceblue;
     text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6),
     1px -1px 0 rgba(0, 0, 0,0.6),
     -1px 1px 0 rgba(0, 0, 0,0.6),
     1px 1px 0 rgba(0, 0, 0,0.6)
+  }
+}
+
+/* Add this section */
+body.dark {
+  .home-color {
+    @apply text-white;
+  }
+  .service-color {
+    @apply text-white;
   }
 }

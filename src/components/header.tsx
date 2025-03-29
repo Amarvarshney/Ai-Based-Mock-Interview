@@ -25,7 +25,7 @@ const Header = () => {
               <NavLink
                 to={"/generate"}
                 className={({ isActive }) =>
-                  cn("text-base text-neutral-600 ",
+                  cn("text-base text-neutral-600 dark:text-white",
                     isActive && "text-neutral-900 font-semibold")}>
                 Take An Interview
               </NavLink>

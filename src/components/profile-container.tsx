@@ -2,6 +2,8 @@ import { useAuth, UserButton } from "@clerk/clerk-react";
 import { Loader } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import{ ThemeSwitcher} from "./theme-switcher";
+
 
 export const ProfileContainer = () => {
   const { isSignedIn, isLoaded } = useAuth();
@@ -22,6 +24,7 @@ export const ProfileContainer = () => {
           <Button size={"sm"}>Get Started</Button>
         </Link>
       )}
+      <ThemeSwitcher/>
     </div>
   );
 };

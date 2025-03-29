@@ -14,7 +14,7 @@ export const NavigationRoutes = ({isMobile = false,}: NavigationRoutesProps) => 
           key={route.href}
           to={route.href}
           className={({ isActive }) =>
-            cn("text-base text-neutral-600",
+            cn(`${route.className} text-base`,
               isActive && "text-neutral-900 font-semibold"
             )
           }
